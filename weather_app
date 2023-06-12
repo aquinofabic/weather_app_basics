@@ -1,4 +1,4 @@
-import requests
+import requests  # module allows to send HTTP requests over to python
 
 api_key = '78c6bcb4a66344859f80385138fe0a20'
 
