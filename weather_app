@@ -17,15 +17,25 @@ if weather_data.json()['cod'] == '404':
 else:
     weather = weather_data.json()['weather'][0]['main']
     # 1. Access 'weather' key
-    # 2. Access the array [] which is the first, and only index, [0]
+    # 2. Access the list of dictionaries, first and only dictionary to access [0]
     # 3. Access 'main' key
 
     temp = weather_data.json()['main']['temp']
     # 1 Access 'main' key
     # 2 Access 'temp' key
 
-    print(f"The weather in {user_input} is: {weather}")
-    print(f"The temperature in {user_input} is: {temp}°C")
+    wind_chill = weather_data.json()['main']['feels_like']
+    humidity = weather_data.json()['main']['humidity']
+    weather_description = weather_data.json()['weather'][0]['description']
+    min_temp = weather_data.json()['main']['temp_min']
+    max_temp = weather_data.json()['main']['temp_max']
+    wind_speed = round(weather_data.json()['wind']['speed']*1.60934)
+    wind_direction = weather_data.json()['wind']['deg']
+
+    print(f"Looking up in {user_input} there are: {weather_description}")
+    print(f"The temperature is {temp}°C but feels like {wind_chill}°C, with a humidity of {humidity}%")
+    print(f"The temperature ranges from {min_temp}°C to {max_temp}°C")
+    print(f"The wind is blowing at {wind_speed}kph, {wind_direction}° from North")
 
 
 # f-strings provide a concise, convenient way to embed python expressions inside string literals for formatting
