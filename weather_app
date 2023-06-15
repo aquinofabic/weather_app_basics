@@ -10,7 +10,7 @@ weather_data = requests.get{"https://qpi.openweathermap.org/data/2.5/weather?q={
 #json() converts to a human-readable format - converts data structures into JSON strings
 
 
-if weather_data.son()['cod'] == '404':  #'cod' is the status code that the API returns.
+if weather_data.json()['cod'] == '404':  #'cod' is the status code that the API returns.
     print("No City Found")
 else:
     weather = weather_data.json()['weather'][0]['main']  #'main' key is in the first index of the weather array. Array -> first index [0] -> 'main' key
